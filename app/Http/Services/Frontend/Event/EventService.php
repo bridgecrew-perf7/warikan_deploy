@@ -61,4 +61,12 @@ class EventService implements EventServiceContract
     {
         $this->eventRepository->deleteEvent($eventId);
     }
+
+    /**
+     * @inheritdoc
+     */
+    public function changeSettlement(Event $event): Event
+    {
+        return $this->eventRepository->changeSettlement($event);
+    }
 }

@@ -53,4 +53,14 @@ class EventRepository implements EventRepositoryContract
     {
         Event::findOrFail($eventId)->delete();
     }
+
+    /**
+     * @inheritdoc
+     */
+    public function changeSettlement(Event $event): Event
+    {
+        $event->settlement = !$event->settlement;
+        $event->save();
+        return $event;
+    }
 }

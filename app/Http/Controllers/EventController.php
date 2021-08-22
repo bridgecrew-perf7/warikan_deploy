@@ -132,4 +132,17 @@ class EventController extends Controller
             EventViewModel::collect($events),
         );
     }
+
+    /**
+     * 支払いステータスを切り替える
+     * @param  int  $eventId
+     * @return JsonResponse
+     */
+    public function changeSettlement(int $eventId): JsonResponse
+    {
+        $event = $this->eventService->findEvent($eventId);
+        $this->eventService->changeSettlement($event);
+
+        return response()->json($event->settlement);
+    }
 }

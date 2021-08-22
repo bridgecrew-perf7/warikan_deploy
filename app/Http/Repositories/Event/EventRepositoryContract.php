@@ -46,4 +46,11 @@ interface EventRepositoryContract
      * @param  int  $eventId
      */
     public function deleteEvent(int $eventId): void;
+
+    /**
+     * 支払いステータスを切り替える
+     * @param  Event  $event
+     * @return Event
+     */
+    public function changeSettlement(Event $event): Event;
 }

@@ -20,7 +20,7 @@ Route::prefix('/events')->group(function () {
     Route::post('/store', 'EventController@store')->name('api.events.store');
     Route::post('/{event_id}/update', 'EventController@update')->name('api.events.update');
     Route::post('/{event_id}/destroy', 'EventController@destroy')->name('api.events.destroy');
-
+    Route::post('/{event_id}/settlement', 'EventController@changeSettlement')->name('api.events.settlement');
 
     Route::prefix('/{event_id}/payments')->group(function () {
         Route::get('/', 'PaymentController@index')->name('api.payments,index');

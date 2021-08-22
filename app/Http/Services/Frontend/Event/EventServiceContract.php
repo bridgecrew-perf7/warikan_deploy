@@ -39,8 +39,16 @@ interface EventServiceContract
     public function updateEvent(Event $event, EventParams $params): void;
 
     /**
+     * イベントを削除する
      * @param  int  $eventId
      * @return void
      */
     public function deleteEvent(int $eventId): void;
+
+    /**
+     * 支払いステータスを切り替える
+     * @param  Event  $event
+     * @return Event
+     */
+    public function changeSettlement(Event $event): Event;
 }
